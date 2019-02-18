@@ -14,16 +14,15 @@ def required(key, name, dtype=str, vals=None, msgs=()):
     )
 
 
-def required_list(key, name, dtype=str, vals=None, msgs=()):
+def required_list(key, name, dtype=str, msgs=()):
     """ specifications for a required argument
     """
     return _required(
         name=name,
         dest=key,
         type=dtype,
-        choices=vals,
         nargs='+',
-        help=_help_message(msgs, vals=vals)
+        help=_help_message(msgs)
     )
 
 
@@ -40,6 +39,22 @@ def optional(key, name, char, tag=None, dtype=None, default=None, vals=None,
         default=default,
         choices=vals,
         help=_help_message(msgs, tag=tag, vals=vals)
+    )
+
+
+def optional_list(key, name, char, tag=None, dtype=None, default=None,
+                  msgs=()):
+    """ specifications for an optional argument
+    """
+    return _optional(
+        name=_tagged_name(name, tag=tag),
+        dest=key,
+        char=char,
+        metavar=name.upper(),
+        type=dtype,
+        default=default,
+        nargs='+',
+        help=_help_message(msgs, tag=tag)
     )
 
 

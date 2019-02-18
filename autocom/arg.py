@@ -4,6 +4,7 @@
 from ._arg import required
 from ._arg import required_list
 from ._arg import optional
+from ._arg import optional_list
 from ._arg import flag
 # functions operating on arguments
 from ._arg import key_
@@ -19,6 +20,7 @@ __all__ = [
     'required',
     'required_list',
     'optional',
+    'optional_list',
     'flag',
     # functions operating on arguments
     'key_',
